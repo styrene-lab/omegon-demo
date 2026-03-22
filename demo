@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Omegon Demo — interactive instrument panel demonstration
+#
+# Usage: ./demo
+#
+# Launches Omegon with the demo prompt pre-loaded and auto-submitted.
+# The TUI stays interactive — watch the CIC instruments respond in real-time.
+
+set -euo pipefail
+cd "$(dirname "$0")"
+
+# Find omegon binary
+OMEGON=""
+for candidate in \
+    "omegon" \
+    "../core/target/dev-release/omegon" \
+    "../core/target/release/omegon" \
+    "$HOME/.omegon/bin/omegon"
+do
+    if command -v "$candidate" &>/dev/null 2>&1; then
+        OMEGON="$candidate"
+        break
+    elif [ -f "$candidate" ]; then
+        OMEGON="$candidate"
+        break
+    fi
+done
+
+if [ -z "$OMEGON" ]; then
+    echo "Error: omegon not found"
+    echo "Build: cd ../core && cargo build --profile dev-release -p omegon"
+    exit 1
+fi
+
+exec "$OMEGON" --initial-prompt-file .omegon/prompts/demo.md --no-splash

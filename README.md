@@ -1,15 +1,28 @@
-# Omegon Smoke Test Project
+# Omegon Demo Project
 
 A test harness for manually exercising every Omegon TUI capability against a live LLM session. Run each prompt in sequence and observe the instrument panel response.
 
-## Setup
+## Quick Start
 
 ```bash
 cd test-project
-omegon  # or: just run (from the omegon repo root)
+./demo
 ```
 
-## Smoke Test Sequence
+That's it. The demo script finds Omegon, launches it with the demo prompt pre-loaded, and the 9-phase sequence runs automatically against a live LLM. Watch the instrument panel at the bottom of the screen.
+
+### Manual Mode
+
+To run individual phases or explore interactively:
+
+```bash
+cd test-project
+omegon
+```
+
+Then paste any prompt from the sequence below.
+
+## Demo Sequence
 
 Run each prompt below in order. After each one, observe the expected instrument behavior and check the box.
 
@@ -90,15 +103,15 @@ Prompt: "Search the archive for any previous decisions about testing strategies"
 ### Phase 6: Design Tree (verifies dashboard sidebar)
 
 ```
-Prompt: "Create a design node called 'smoke-test-feature' with title 'Smoke test feature for TUI validation'. Set it to exploring status."
+Prompt: "Create a design node called 'demo-feature' with title 'Demo feature for TUI validation'. Set it to exploring status."
 ```
 Then:
 ```
-Prompt: "Add a question to smoke-test-feature: 'Does the instrument panel respond correctly to design tree changes?'"
+Prompt: "Add a question to demo-feature: 'Does the instrument panel respond correctly to design tree changes?'"
 ```
 Then:
 ```
-Prompt: "Add a decision to smoke-test-feature with title 'Instruments validated' status decided rationale 'All four instruments respond to telemetry correctly'"
+Prompt: "Add a decision to demo-feature with title 'Instruments validated' status decided rationale 'All four instruments respond to telemetry correctly'"
 ```
 
 **Expected**: Dashboard sidebar updates with the new node. Tool calls fire for each design_tree operation. Memory may fire for fact storage.
@@ -140,7 +153,7 @@ Type: /focus (again)
 ### Phase 9: Cleanup
 
 ```
-Prompt: "Delete the smoke-test-feature design node and remove any test facts you stored"
+Prompt: "Delete the demo-feature design node and remove any test facts you stored"
 ```
 
 - [ ] Dashboard sidebar updates
