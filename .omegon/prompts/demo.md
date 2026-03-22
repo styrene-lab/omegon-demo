@@ -31,7 +31,7 @@ impl Default for Config {
 ```
 Then create `tests/integration.rs` containing:
 ```rust
-use omegon_smoke_test::greet;
+use omegon_demo::greet;
 
 #[test]
 fn greeting_integration() {
@@ -62,7 +62,7 @@ Then search episodes: "demo"
 Print: "═══ PHASE 6: DESIGN TREE — Dashboard sidebar updates ═══"
 Print: "👁 Watch: tools instrument fires, dashboard sidebar shows new node"
 
-Create a design node with id "smoke-validation", title "Demo validation results", status "exploring", overview "Captures the results of running the demo sequence against the Omegon TUI".
+Create a design node with id "demo-validation", title "Demo validation results", status "exploring", overview "Captures the results of running the demo sequence against the Omegon TUI".
 
 Add a question: "Did all four instruments respond correctly to their telemetry sources?"
 
@@ -90,7 +90,7 @@ Print: "👁 Watch: memory waterfall fires during cleanup, then all instruments 
 
 Archive any facts stored during this test that contain "demo".
 Delete the file `docs/VALIDATION.md`.
-Remove the design node "smoke-validation" if it exists (set status to deferred).
+Remove the design node "demo-validation" if it exists (set status to deferred).
 
 Print: "═══ DEMO COMPLETE ═══"
 Print: "Review the checklist in README.md and check off each item that passed."
