@@ -32,4 +32,4 @@ if [ -z "$OMEGON" ]; then
     exit 1
 fi
 
-exec "$OMEGON" --initial-prompt-file .omegon/prompts/demo.md --no-splash
+exec "$OMEGON" --initial-prompt-file .omegon/prompts/demo.md --no-splash --context-class squad
